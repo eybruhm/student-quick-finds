@@ -7,10 +7,12 @@ body {
 
 #map-container {
     position: absolute;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     top: 0%;
     left: 0%;
+    margin: 0;
+    overflow: hidden;
 }
 
 
@@ -64,6 +66,7 @@ body {
     position: absolute;
     z-index: 3;
     font-size: 120%;
+  font-family: "Fredoka", sans-serif;
 }
 #img-X {
     position: relative;
@@ -114,51 +117,67 @@ ul li .data {
 }
 
 @media only screen and (max-width: 768px) {
+    #map-container {
+        height: 100vh;
+    }
     #detail-box {
         grid-template-columns: 1fr;
         grid-template-rows: 1fr 1fr;
         grid-template-areas: 
             "img"
             "details";
-        width: 30vh;
-        height: 80vh;
+        width: 40vh;
+        height: 83vh;
         top: 0;
         left: 0;
-        margin-left: 22%;
-        margin-top: 20%;
+        margin-left: 23%;
+        margin-top: 15%;
+      box-shadow: 0 0 30px 20px rgba(0, 0, 0, 0.3);
     }
     #img-container {
-        width: 30vh;
-        height: 30vh;
+        width: 40vh;
+        height: 40vh;
         top: 14%;
     }
+      #shop-img {
+        margin:0;
+        position: absolute;
+        right: 0;
+      }
     #details-container {
         position: relative;
-        width: 29.5vh;
-        height: 50vh;
+        width: 40vh;
+        height: 47vh;
         margin: 0;
+      padding: 0;
     }
     #img-X {
         display: flex;
         left: 44%;
         top: -44%;
+      color: #FFDDB7;
+      font-weight: 700;
+      font-size: 150%;
     }
     #details-X {
         display: none;
     }
     #shop-name {
-        font-size: 180%;
+        font-size: 150%;
         position: relative;
-        margin: 10% 1% 10% 11%; 
+        margin: 2% 5% 8% 7%; 
     }
     #shop-data {
-        font-size: 120%;
+        font-size: 90%;
+        top: -4%;
+      left: -11%;
+      margin-left: 0;
     }
     #shop-data li {
-        margin-top: 8%;
+        margin-top: 3%;
     }
     .label {
-        font-size: 80%;
+        font-size: 70%;
         line-height: 120%;
     }
 

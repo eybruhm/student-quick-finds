@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="icon" href="logo.png" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
     <title>Student Quick Finds</title>
     <style>
@@ -139,9 +140,10 @@
 
         #screen-container {
             width: 100%;
-            height: calc(100vh - 70px); /* Subtracting the height of nav-container */
+            height: 89.3vh; /* Subtracting the height of nav-container */
             background-color: #F0B248;
-            overflow: hidden; /* Hide overflow content */
+            margin: 0;
+            overflow: hidden;
         }
 
         iframe {
@@ -159,6 +161,14 @@
                 width: 50%;
                 padding: 70px 0 15px;
             }
+            .nav-title {
+              left: 18%;
+            }
+            #nav-logo {
+              left: 3%;
+              top: -7%;
+            }
+          
             nav ul{
                 display: none;
             }
@@ -172,13 +182,6 @@
             }
             nav ul li ul li a{
                 padding-left: 15%;
-            }
-             .nav-title {
-              left: 18%;
-            }
-            #nav-logo {
-              left: 3%;
-              top: -7%;
             }
             
             .nav-container {
@@ -255,7 +258,7 @@
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script>
-        alert("Still working behind the scenes to improve your browsing experience. Thanks for your understanding!");
+        // alert("Still working behind the scenes to improve your browsing experience. Thanks for your understanding!");
 
         $(document).ready(function() {
             function loadContent(url) {
