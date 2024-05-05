@@ -1,0 +1,158 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Printing Services Map</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="map.css">
+</head>
+<body>
+    <div id="map-container"></div>
+    <div id="detail-box">
+        <div id="img-container"> 
+            <img id="shop-img"> 
+            <div class="btn-X" id="img-X">X</div>
+        </div>
+        <div id="details-container">
+            <div class="btn-X" id="details-X">X</div>
+            <div id="shop-name">Shop's Name</div>
+            <ul id="shop-data">
+                <li class="label" id="label-address">Address: <br><span class="data" id="shop-address">Still updating...</span></li>
+                <li class="label" id="label-hours">Store Hours: <br><span class="data" id="shop-store-hours">Still updating...</span></li>
+                <li class="label" id="label-price">Price Range: <br><span class="data" id="shop-price-range">Still updating...</span></li>
+                <li class="label" id="label-features">Features: <br><span class="data" id="shop-features">Still updating...</span></li>
+            </ul>
+        </div>
+    </div>
+    
+    
+<script>
+    var map;
+    var InfoObj = [];
+    var centerCords = {
+        lat: 14.69995046678531,
+        lng: 121.03462807110095,
+    };
+    
+
+    const icons = {
+        printingServices: {                           // type
+            icon: "icon-printing-services.png"        // icon sa mapa
+        }
+    };
+
+     
+    var markersOnMap = [
+        // Basta violet yung bracket kung magdadagdag
+        {
+            shopName: "Jd Printing Shop",                                  
+            shopAddress: '#667 Quirino Highway, Novaliches, Quezon City', 
+            shopStoreHours: '7:00 AM - 6:00 PM',
+            shopPriceRange: 'Starts at P2',    
+            shopFeatures: '2 Pesos Text Black N White, 5 Colored Short, 10 Colored Long',                              
+            shopImage: 'Printing-20.png',
+            LatLng: [{
+                lat: 14.701143, 
+                lng: 121.035597
+            }],
+            type: 'printingServices' 
+        },
+        {
+            shopName: "Printing Shop",                                  
+            shopAddress: '11 Urbano St., Brgy Bagbag Novaliches, Quezon City', 
+            // shopStoreHours: '0:00 AM - 0:00 PM',
+            shopPriceRange: 'Starts at P2',    
+            shopFeatures: 'Xerox, Print, and Laminate',                              
+            shopImage: 'Printing-19.png',
+            LatLng: [{
+                lat: 14.699019, 
+                lng: 121.032327
+            }],
+            type: 'printingServices' 
+        },
+        {
+            shopName: "Nova Square Mall",                                  
+            shopAddress: '#2F, Shopping Center, Nova Square, 1116 Quirino Hwy, Novaliches, Quezon City', 
+            shopStoreHours: 'Varies by store',
+            shopPriceRange: 'Starts at P2',    
+            shopFeatures: 'Paper, tarpaulin, bookbinding, jersey customization, personalized souvenirs, etc.',                              
+            shopImage: 'Printing-Nova.jpg',
+            LatLng: [{
+                lat: 14.701542065225114, 
+                lng: 121.03505037851497
+            }],
+            type: 'printingServices'
+           
+         },
+        // The second floor of Nova Square Mall is the bustling hub of printing shops in the area, offering a wide range of services including paper printing, tarpaulin printing, jersey customization, personalized souvenirs, bookbinding, and more.
+        
+    ];
+
+    window.onload = function() {
+        initMap();
+    };
+
+    function addMarkerInfo() {
+            for (let i = 0; i < markersOnMap.length; i++) {
+                const printingServices = markersOnMap[i];    
+                const marker = new google.maps.Marker({
+                    position: printingServices.LatLng[0],        
+                    icon: icons[printingServices.type].icon,    
+                    map: map
+                });
+
+                // Create a closure to maintain the correct value of 'i'
+                marker.addListener("click", (function(printingServices) {
+                    return function() {
+                        document.getElementById('shop-name').textContent = printingServices.shopName;
+                        document.getElementById('shop-address').textContent = printingServices.shopAddress;
+                        document.getElementById('shop-store-hours').textContent = printingServices.shopStoreHours;
+                        document.getElementById('shop-price-range').textContent = printingServices.shopPriceRange;
+                        document.getElementById('shop-features').textContent = printingServices.shopFeatures;
+                        document.getElementById('shop-img').src = printingServices.shopImage; // Fix the image ID
+                        document.getElementById('detail-box').style.display = "grid"; // Set detail-box to grid
+                    };
+                })(printingServices));
+            }
+        }
+
+        window.onload = function() {
+            initMap();
+        };
+
+
+    function initMap() {
+        map = new google.maps.Map(document.getElementById('map-container'), {
+            zoom: 18,
+            center: centerCords
+        });
+        addMarkerInfo();
+    };
+
+    // Get the close buttons by class name "btn-X"
+    const closeButtons = document.querySelectorAll('.btn-X');
+    
+    // Add click event listener to each close button
+    closeButtons.forEach(function(button) {
+        button.addEventListener('click', function() {
+            // Find the closest parent element with ID "detail-box"
+            const detailBox = document.getElementById('detail-box');
+            // Check if the detailBox exists
+            if (detailBox) {
+                // Hide the detail-box by setting its display property to "none"
+                detailBox.style.display = 'none';
+            }
+        });
+    });
+
+</script>
+
+<script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDXhvFLQkvbE62WCdNsgXEB6rPSPnvKIAU&callback=initMap&v=weekly">
+</script>
+</body>
+</html>

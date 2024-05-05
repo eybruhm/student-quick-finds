@@ -1,0 +1,259 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Map</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="map.css">
+</head>
+<body>
+    <div id="map-container"></div>
+    <div id="detail-box">
+        <div id="img-container"> 
+            <img id="shop-img"> 
+            <div class="btn-X" id="img-X">X</div>
+        </div>
+        <div id="details-container">
+            <div class="btn-X" id="details-X">X</div>
+            <div id="shop-name">Shop's Name</div>
+            <ul id="shop-data">
+                <li class="label">Address: <br><span class="data" id="shop-address">Still updating...</span></li>
+                <li class="label">Store Hours: <br><span class="data" id="shop-store-hours">Still updating...</span></li>
+                <li class="label">Price Range: <br><span class="data" id="shop-price-range">Still updating...</span></li>
+                <li class="label">Features: <br><span class="data" id="shop-features">Still updating...</span></li>
+            </ul>
+        </div>
+    </div>
+    
+    
+<script>
+    var map;
+    var InfoObj = [];
+    var centerCords = {
+        lat: 14.69995046678531,
+        lng: 121.03462807110095,
+    };
+    
+
+    const icons = {
+        restaurant: {                           // type
+            icon: "icon-restaurant.png"        // icon sa mapa
+        }
+    };
+
+     
+    var markersOnMap = [
+        // Basta violet yung bracket kung magdadagdag
+        {
+            shopName: "Patti's Kitchen",                                  
+            shopAddress: '0003 (A), Emerald St. Rockville Subd, San Bartolome, Quezon City', 
+            shopStoreHours: 'Open 24/7',
+            shopPriceRange: 'P70 - P200',    
+            shopFeatures: 'Dinakdakan, Bangsilog, Sweet in Sour Pork, Lugaw',                              
+            shopImage: 'Restaurant-2.jpg',
+            LatLng: [{
+                lat: 14.701143, 
+                lng: 121.035597
+            }],
+            type: 'restaurant' 
+        },
+        {
+            shopName: "Snack Corner",                                  
+            shopAddress: 'P220 + BG7 Quezon City, Metro Manila Near 14 Rockville Ave. , Quezon City', 
+            shopStoreHours: '11:00 AM - 9:00 PM',
+            // shopPriceRange: 'N/A',    
+            shopFeatures: 'French Fries, Shawarma',                              
+            shopImage: 'Restaurant-4.jpg',
+            LatLng: [{
+                lat: 14.701186, 
+                lng: 121.035535
+            }],
+            type: 'restaurant' 
+        },
+        {
+            shopName: "Gracia’s",                                  
+            shopAddress: 'Emerald St. Rockville Subdivision, Novaliches, Quezon City', 
+            shopStoreHours: '9:00 AM - 9:00 PM',
+            shopPriceRange: 'P25 - P130',    
+            shopFeatures: 'Siomai Rice, Sizzling Chicken Sisig, Lechon Kawali, Iced Nutella',                              
+            shopImage: 'Restaurant-5.png',
+            LatLng: [{
+                lat: 14.700392, 
+                lng: 121.035372
+            }],
+            type: 'restaurant' 
+        },
+        {
+            shopName: "Lutong Bahay Ni Nanay",                                  
+            shopAddress: '#5 Emerald St., Novaliches, Quezon City', 
+            shopStoreHours: '7:30 AM - 2:00 PM',
+            shopPriceRange: 'P45 - P80',    
+            shopFeatures: 'Chicken Adobo, Tinola, Nilaga, Chicken Curry, Menudo',                              
+            shopImage: 'Restaurant-6.jpg',
+            LatLng: [{
+                lat: 14.700829, 
+                lng: 121.035689
+            }],
+            type: 'restaurant' 
+        },
+        {
+            shopName: "Carinderia",                                  
+            shopAddress: 'Novasquare, Pablo Dela Cruz, Novaliches, Quezon City', 
+            // shopStoreHours: 'N/A',
+            // shopPriceRange: 'N/A',    
+            shopFeatures: 'Chicken Adobo, Dinuguan, Tinola, Nilaga, Chicken Curry, Menudo',                              
+            shopImage: 'Restaurant-12.jpg',
+            LatLng: [{
+                lat: 14.7009928, 
+                lng: 121.0348826
+            }],
+            type: 'restaurant' 
+        },
+        {
+            shopName: "Tapsi-Nova",                                  
+            shopAddress: '#665 Urbano St. Corner Quirino Highway Brgy.', 
+            shopStoreHours: '10:00 AM - 5:30 PM',
+            shopPriceRange: 'P5 - P150',    
+            shopFeatures: '55 Combo Meal 2 Ulam, Student Meal',                              
+            shopImage: 'Restaurant-13.jpg',
+            LatLng: [{
+                lat: 14.699070, 
+                lng: 121.033859
+            }],
+            type: 'restaurant' 
+        },
+        {
+            shopName: "Food Hub Kalye Susano est. 2022",                                  
+            shopAddress: '#662 Quirino Highway, Brgy. Bagbag, Novaliches, Quezon City', 
+            shopStoreHours: 'Open 24/7',
+            shopPriceRange: 'P50 - P450',    
+            shopFeatures: 'Sizzling Foods',                              
+            shopImage: 'Restaurant-14.jpg',
+            LatLng: [{
+                lat: 14.699070, 
+                lng: 121.033859
+            }],
+            type: 'restaurant' 
+        },
+        {
+            shopName: "Goto Pares",                                  
+            shopAddress: '#661 Urbano St. Brgy. Bagbag Novaliches, Quezon City', 
+            shopStoreHours: 'Open 24/7',
+            shopPriceRange: 'P15 - P129',    
+            shopFeatures: 'Tapsilog and Pares',                              
+            shopImage: 'Restaurant-15.jpg',
+            LatLng: [{
+                lat: 14.698961, 
+                lng: 121.033786
+            }],
+            type: 'restaurant' 
+        },
+        {
+            shopName: "SM Canteen",                                  
+            shopAddress: '#5 Urbano St. Corner Sinforosa Extension, Brgy. Bagbag Novaliches, Quezon City', 
+            shopStoreHours: '5:00 AM - 8:00 PM',
+            shopPriceRange: 'P10 - P70',    
+            shopFeatures: '1 Rice, 1 Ulam, 1 Gulay for only 55 pesos',                              
+            shopImage: 'Restaurant-16.jpg',
+            LatLng: [{
+                lat: 14.699016, 
+                lng: 121.032832
+            }],
+            type: 'restaurant' 
+        },
+        {
+            shopName: "Buddah",                                  
+            shopAddress: 'St. Sinforosa #1 Quirino Highway, Brgy. Bagbag Novaliches, Quezon City', 
+            shopStoreHours: 'Open 24/7',
+            shopPriceRange: 'P5 - P100',    
+            shopFeatures: '55 Pesos Mami Rice, 20 Pesos Kwek Kwek, Kikiam, Lugaw, Hotdog, Lumpia',                              
+            shopImage: 'Restaurant-17.jpg',
+            LatLng: [{
+                lat: 14.699513, 
+                lng: 121.034106
+            }],
+            type: 'restaurant' 
+        },
+        {
+            shopName: "Malia & Mommy D’dang Eater",                                  
+            shopAddress: '#3 Sinforosa St., Brgy Bagbag Novaliches, Quezon City', 
+            shopStoreHours: '6:00 AM - 8:00 PM',
+            shopPriceRange: 'P55 - P75',    
+            shopFeatures: 'Sisig, Chicken, Anything Fried',                              
+            shopImage: 'Restaurant-18.jpg',
+            LatLng: [{
+                lat: 14.699514, 
+                lng: 121.033796
+            }],
+            type: 'restaurant' 
+        },
+    ];
+
+    window.onload = function() {
+        initMap();
+    };
+
+    function addMarkerInfo() {
+            for (let i = 0; i < markersOnMap.length; i++) {
+                const restaurant = markersOnMap[i];    
+                const marker = new google.maps.Marker({
+                    position: restaurant.LatLng[0],        
+                    icon: icons[restaurant.type].icon,    
+                    map: map
+                });
+
+                // Create a closure to maintain the correct value of 'i'
+                marker.addListener("click", (function(restaurant) {
+                    return function() {
+                        document.getElementById('shop-name').textContent = restaurant.shopName;
+                        document.getElementById('shop-address').textContent = restaurant.shopAddress;
+                        document.getElementById('shop-store-hours').textContent = restaurant.shopStoreHours;
+                        document.getElementById('shop-price-range').textContent = restaurant.shopPriceRange;
+                        document.getElementById('shop-features').textContent = restaurant.shopFeatures;
+                        document.getElementById('shop-img').src = restaurant.shopImage; // Fix the image ID
+                        document.getElementById('detail-box').style.display = "grid"; // Set detail-box to grid
+                    };
+                })(restaurant));
+            }
+        }
+
+        window.onload = function() {
+            initMap();
+        };
+
+
+    function initMap() {
+        map = new google.maps.Map(document.getElementById('map-container'), {
+            zoom: 18,
+            center: centerCords
+        });
+        addMarkerInfo();
+    };
+
+    // Get the close buttons by class name "btn-X"
+    const closeButtons = document.querySelectorAll('.btn-X');
+    
+    // Add click event listener to each close button
+    closeButtons.forEach(function(button) {
+        button.addEventListener('click', function() {
+            // Find the closest parent element with ID "detail-box"
+            const detailBox = document.getElementById('detail-box');
+            // Check if the detailBox exists
+            if (detailBox) {
+                // Hide the detail-box by setting its display property to "none"
+                detailBox.style.display = 'none';
+            }
+        });
+    });
+
+</script>
+
+<script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDXhvFLQkvbE62WCdNsgXEB6rPSPnvKIAU&callback=initMap&v=weekly">
+</script>
+</body>
+</html>

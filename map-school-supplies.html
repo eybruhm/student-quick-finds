@@ -1,0 +1,143 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School Supplies Map</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="map.css">
+</head>
+<body>
+    <div id="map-container"></div>
+    <div id="detail-box">
+        <div id="img-container"> 
+            <img id="shop-img"> 
+            <div class="btn-X" id="img-X">X</div>
+        </div>
+        <div id="details-container">
+            <div class="btn-X" id="details-X">X</div>
+            <div id="shop-name">Shop's Name</div>
+            <ul id="shop-data">
+                <li class="label">Address: <br><span class="data" id="shop-address">Still updating...</span></li>
+                <li class="label">Store Hours: <br><span class="data" id="shop-store-hours">Still updating...</span></li>
+                <li class="label">Price Range: <br><span class="data" id="shop-price-range">Still updating...</span></li>
+                <li class="label">Features: <br><span class="data" id="shop-features">Still updating...</span></li>
+            </ul>
+        </div>
+    </div>
+    
+    
+<script>
+    var map;
+    var InfoObj = [];
+    var centerCords = {
+        lat: 14.69995046678531,
+        lng: 121.03462807110095,
+    };
+    
+
+    const icons = {
+        schoolSupplies: {                           // type
+            icon: "icon-school-supplies.png"        // icon sa mapa
+        }
+    };
+
+     
+    var markersOnMap = [
+        // Basta violet yung bracket kung magdadagdag
+        {
+            shopName: "School Zone",                                  
+            shopAddress: 'PMB Building, 315 Pablo Dela Cruz, Novaliches, Quezon City', 
+            shopStoreHours: '8:00 AM - 8:00 PM',
+            shopPriceRange: 'Starts at P5',    
+            shopFeatures: 'Notebooks, Cartolina, Pins, Marker, Envelope, Pencil, Ballpen, and etc.',                              
+            shopImage: 'School-Supplies-9.jpg',
+            LatLng: [{
+                lat: 14.701560, 
+                lng: 121.035356
+            }],
+            type: 'schoolSupplies' 
+        },
+        {
+            shopName: "Rowena Store",                                  
+            shopAddress: 'Near Juan Cafe - 688 San Bartolome Quirino Highway, Bonifacio market', 
+            shopStoreHours: '7:00 AM - 7:00 PM',
+            shopPriceRange: 'P2 - P3,000',    
+            shopFeatures: 'Toys, Notebooks, Cartolina, Color, Cosmetics, Sport Equipment, Broom, and etc.',                              
+            shopImage: 'School-Supplies-1.jpg',
+            LatLng: [{
+                lat: 14.701088, 
+                lng: 121.035360
+            }],
+            type: 'schoolSupplies' 
+        },
+        
+    ];
+
+    window.onload = function() {
+        initMap();
+    };
+
+    function addMarkerInfo() {
+            for (let i = 0; i < markersOnMap.length; i++) {
+                const schoolSupplies = markersOnMap[i];    
+                const marker = new google.maps.Marker({
+                    position: schoolSupplies.LatLng[0],        
+                    icon: icons[schoolSupplies.type].icon,    
+                    map: map
+                });
+
+                // Create a closure to maintain the correct value of 'i'
+                marker.addListener("click", (function(schoolSupplies) {
+                    return function() {
+                        document.getElementById('shop-name').textContent = schoolSupplies.shopName;
+                        document.getElementById('shop-address').textContent = schoolSupplies.shopAddress;
+                        document.getElementById('shop-store-hours').textContent = schoolSupplies.shopStoreHours;
+                        document.getElementById('shop-price-range').textContent = schoolSupplies.shopPriceRange;
+                        document.getElementById('shop-features').textContent = schoolSupplies.shopFeatures;
+                        document.getElementById('shop-img').src = schoolSupplies.shopImage; // Fix the image ID
+                        document.getElementById('detail-box').style.display = "grid"; // Set detail-box to grid
+                    };
+                })(schoolSupplies));
+            }
+        }
+
+        window.onload = function() {
+            initMap();
+        };
+
+
+    function initMap() {
+        map = new google.maps.Map(document.getElementById('map-container'), {
+            zoom: 18,
+            center: centerCords
+        });
+        addMarkerInfo();
+    };
+
+    // Get the close buttons by class name "btn-X"
+    const closeButtons = document.querySelectorAll('.btn-X');
+    
+    // Add click event listener to each close button
+    closeButtons.forEach(function(button) {
+        button.addEventListener('click', function() {
+            // Find the closest parent element with ID "detail-box"
+            const detailBox = document.getElementById('detail-box');
+            // Check if the detailBox exists
+            if (detailBox) {
+                // Hide the detail-box by setting its display property to "none"
+                detailBox.style.display = 'none';
+            }
+        });
+    });
+
+</script>
+
+<script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDXhvFLQkvbE62WCdNsgXEB6rPSPnvKIAU&callback=initMap&v=weekly">
+</script>
+</body>
+</html>

@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
+    <title>Student Quick Finds</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+
+        /* FOR NAVIGATION */
+        .nav-container{
+            height: 70px;               
+            background: white;
+            width: 100%;
+            margin: 0 auto;
+            position: relative;
+        }
+        #nav-logo {
+            left: 6%;
+            position: absolute;
+            width: 10vh;
+            height: 10vh;
+            top: -11%;
+            background-image: url(logo.png);
+            background-position: center;
+            background-size: cover;
+        }
+        .nav-title {
+            left: 10%;
+            position: absolute;
+            padding-left: 20px;
+            line-height: 70px;
+            font-size: 1.5em;
+            text-decoration: none;
+            font-family: "Fredoka", sans-serif;
+            font-weight: 700;
+            font-size: 150%;
+            color: black;
+        }
+        nav{
+            float: right;
+        }
+        nav ul{
+            list-style: none;
+        }
+        nav ul li{
+            float: left;
+            position: relative;
+        }
+        nav ul li a{
+            display: block;
+            padding: 0 20px;
+            line-height: 70px;
+            background: #fff;
+            text-decoration: none;
+            color: #000000;
+            font-family: "Fredoka", sans-serif;
+            font-weight: 700;
+            font-size: 150%;
+        }
+        nav ul li a:hover{
+            background: #F0B248;
+            color: #fff;
+        }
+        nav ul li a:not(:only-child):after{
+            content: ' ▼';
+            padding-left: 5px;
+        }
+        nav ul li ul li {
+            min-width: 190px;
+        }
+        nav ul li ul li a{
+            padding: 15px;
+            line-height: 20px;
+            font-weight: 600;
+            font-size: 130%;
+        }
+        .nav-dropdown{
+            position: absolute;
+            display: none;
+            z-index: 1;
+        }
+        .nav-dropdown li:hover, .nav-list li a:hover {
+            cursor: pointer;
+        }
+        
+        .nav-mobile{
+            display: none;
+            position: absolute;
+            top: 0;
+            right: 0;
+            height: 70px;
+            width: 70px;
+        }
+        #nav-toggle{
+            position: absolute;
+            left: 18px;
+            top: 22px;
+            cursor: pointer;
+            padding: 10px 35px 15px 0px;
+        }
+        #nav-toggle span,
+        #nav-toggle span::before,
+        #nav-toggle span::after{
+            position: absolute;
+            display: block;
+            content: '';
+            background: black;
+            height: 5px;
+            width: 35px;
+            transition: all 300ms ease-in-out;
+        }
+        #nav-toggle span::before{
+            top: -10px;
+        }
+        #nav-toggle span::after{
+            bottom: -10px;
+        }
+        #nav-toggle.active span{
+            background-color: transparent;
+        }
+        #nav-toggle.active span::before, #nav-toggle.active span::after{
+            top: 0;
+        }
+        #nav-toggle.active span::before{
+            transform: rotate(45deg);
+        }
+        #nav-toggle.active span::after{
+            transform: rotate(-45deg);
+        }
+
+        #screen-container {
+            width: 100%;
+            height: calc(100vh - 70px); /* Subtracting the height of nav-container */
+            background-color: #F0B248;
+            overflow: hidden; /* Hide overflow content */
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* FOR NAVIGATION */
+        @media only screen and (max-width: 808px) {
+            .nav-mobile{
+                display: block;
+            }
+            nav{
+                width: 50%;
+                padding: 70px 0 15px;
+            }
+            nav ul{
+                display: none;
+            }
+            nav ul li {
+                float: none;
+            }
+            nav ul li a{
+                padding: 15px;
+                line-height: 20px;
+                padding-left: 10%;
+            }
+            nav ul li ul li a{
+                padding-left: 15%;
+            }
+            
+            .nav-container {
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                z-index: 999; /* Ensure that the navigation is above other elements */
+            }
+            
+            .nav-dropdown {
+                position: relative;
+                top: 0px; /* Adjust this value as needed */
+                width: 100%;
+                z-index: 1; /* Ensure that the dropdown is below the nav-list */
+            }
+
+            .nav-list {
+                position: relative;
+                z-index: 2; /* Ensure that the nav-list is above the dropdown */
+            }
+
+            #screen-container {
+                padding-top: 70px; /* Adjust this value to compensate for the fixed navigation */
+            }
+
+            /* Adjust position of "About" and "Contacts" to move down with expanded dropdown */
+            .nav-container.expanded {
+                height: auto; /* Allow height to expand */
+            }
+
+            .nav-container.expanded .nav-title,
+            .nav-container.expanded nav ul li:not(:nth-child(2)) {
+                position: relative;
+                top: 70px; /* Adjust this value to move down accordingly */
+            }
+        }
+
+        
+
+    </style>
+</head>
+<body>
+    <div class="nav-container">
+        <div id="nav-logo"></div>
+        <div class="nav-title">
+            Student Quick Finds
+        </div>
+        <nav>
+            <div class="nav-mobile">
+                <a href="#" id="nav-toggle">
+                    <span></span>
+                </a>
+            </div>
+            <ul class="nav-list">
+                <li id="nav-btn-home"><a>Home</a></li>
+                <li><a>Maps</a>
+                    <ul class="nav-dropdown" id="nav-maps">
+                        <li id="nav-btn-restaurant"><a>Restaurant</a></li>
+                        <li id="nav-btn-beverages"><a>Beverages</a></li>
+                        <li id="nav-btn-printing-services"><a>Printing Services</a></li>
+                        <li id="nav-btn-school-supplies"><a>School Supplies</a></li>
+                    </ul>
+                </li>
+                <li id="nav-btn-about"><a>About</a></li>
+                <li id="nav-btn-contacts"><a>Contacts</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div id="screen-container">
+        <!-- CONTENT DISPLAYS HERE -->
+        <iframe id="content-iframe" src="home.html" frameborder="0"></iframe>
+    </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script>
+        alert("Still working behind the scenes to improve your browsing experience. Thanks for your understanding!");
+
+        $(document).ready(function() {
+            function loadContent(url) {
+                $('#content-iframe').attr('src', url);
+            }
+
+            // Load home.html by default
+            loadContent('home.html');
+
+            $('#nav-btn-home').click(function() {
+                loadContent('home.html');
+            });
+
+            $('#nav-btn-restaurant').click(function() {
+                loadContent('map-restaurant.html');
+            });
+
+            $('#nav-btn-beverages').click(function() {
+                loadContent('map-beverages.html');
+            });
+
+            $('#nav-btn-printing-services').click(function() {
+                loadContent('map-printing-services.html');
+            });
+
+            $('#nav-btn-school-supplies').click(function() {
+                loadContent('map-school-supplies.html');
+            });
+
+            $('#nav-btn-about').click(function() {
+                loadContent('about.html');
+            });
+
+            $('#nav-btn-contacts').click(function() {
+                loadContent('contacts.html');
+            });
+
+            $('nav ul li a:not(:only-child)').click(function(e) {
+                $(this).siblings('.nav-dropdown').toggle();
+                e.stopPropagation();
+            });
+
+            $('html').click(function(){
+                $('.nav-dropdown').hide();
+            })
+
+            $('#nav-toggle').click(function(){
+                $('nav ul').slideToggle();
+            })
+
+            $('#nav-toggle').on('click', function(){
+                this.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>

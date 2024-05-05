@@ -1,0 +1,165 @@
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#map-container {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    top: 0%;
+    left: 0%;
+}
+
+
+/* 0 */
+#detail-box {
+    width: 57.5vw;
+    height: 70vh;
+    z-index: 1;
+    position: absolute;
+    box-shadow: 0 0 40px 40px rgba(0, 0, 0, 0.3); /* Spread radius of 5px */
+    top: 14%;
+    left: 20%;
+    display: none;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: 
+        "img details";
+}
+
+
+
+/* 1 */
+#img-container {
+    background-color: #FFDDB7;
+    grid-area: img;
+    width: 70vh;
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#details-container {
+    background-color: #FFDDB7;
+    position: absolute;
+    grid-area: details;
+    width: 25vw;
+    height: 70vh;
+    padding: 0 1% 0 5%;
+    font-family: "Fredoka", sans-serif;
+}
+
+/* 2 */
+#details-X, #img-X {
+    width: 23px;
+    height: 23px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    right: 0.5%;
+    top: 0.5%;
+    position: absolute;
+    z-index: 3;
+    font-size: 120%;
+}
+#img-X {
+    position: relative;
+    left: 47%;
+    top: -47%;
+    z-index: 3;
+    display: none;
+}
+#shop-img {
+    width: 100%; /* Make the image fill the width of the container */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Ensure proper spacing */
+    margin: auto; /* Center the image */
+}
+
+#details-X:hover, #img-X:hover {
+    cursor: pointer;
+    font-weight: 600;
+    color: white;
+}
+
+#shop-name {
+    font-size: 230%;
+    position: relative;
+    margin: 5% 3% 1% 7%; 
+    font-weight: 600;
+}
+#shop-data {
+    font-size: 130%;
+    position: relative;
+    left: -5%;
+    list-style: none;
+    margin: 0;
+}
+
+/* 3 */
+#shop-data li {
+    margin-top: 9%;
+}
+.label {
+    font-size: 70%;
+    line-height: 120%;
+    font-weight: 550;
+}
+ul li .data {
+    font-size: 140%;
+    font-weight: 350;
+}
+
+@media only screen and (max-width: 768px) {
+    #detail-box {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;
+        grid-template-areas: 
+            "img"
+            "details";
+        width: 30vh;
+        height: 80vh;
+        top: 0;
+        left: 0;
+        margin-left: 22%;
+        margin-top: 20%;
+    }
+    #img-container {
+        width: 30vh;
+        height: 30vh;
+        top: 14%;
+    }
+    #details-container {
+        position: relative;
+        width: 29.5vh;
+        height: 50vh;
+        margin: 0;
+    }
+    #img-X {
+        display: flex;
+        left: 44%;
+        top: -44%;
+    }
+    #details-X {
+        display: none;
+    }
+    #shop-name {
+        font-size: 180%;
+        position: relative;
+        margin: 10% 1% 10% 11%; 
+    }
+    #shop-data {
+        font-size: 120%;
+    }
+    #shop-data li {
+        margin-top: 8%;
+    }
+    .label {
+        font-size: 80%;
+        line-height: 120%;
+    }
+
+}

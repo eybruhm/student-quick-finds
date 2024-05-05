@@ -1,0 +1,229 @@
+body {
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif;
+    box-sizing: border-box;
+}
+
+.home-main-container {
+    background-image: url(qcu-img-1.jpg);
+    background-position: center;
+    background-size: cover;
+    overflow: hidden;
+    width: 100%;
+    height: 100vh;    /*  ITO PINALITAN KO, DI NA SYA 100*/
+    display: grid;
+    position: relative;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+    grid-template-areas: 
+        "nav"
+        "screenn";
+}
+
+
+#home-screen-container  {
+    margin: 0px;
+    display: grid;
+    grid-area: screenn;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1.9fr 0.9fr;
+    grid-template-areas: 
+        "desc img"
+        "explore img";
+}
+
+#home-description {
+    background-color: rgba(255, 255, 255, 0.8);
+    grid-area: desc;
+    position: relative;
+}
+
+#home-explore p{
+    font-weight: bold ;
+    font-size: 25px;
+    font-family: "Righteous", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    position: relative;
+    left: 20px;
+    top: 0%;
+}
+
+#name p {
+    color: #000000;
+}
+
+#description p {
+    color: #000000;
+}
+
+#name {
+    position: relative;
+    top: 5%;
+    margin: 0 5%;
+    font-weight: bold ;
+    font-size: 60px;
+    font-family: "Fredoka", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+ 
+}
+
+#description {
+    position: relative;
+    top: 3%;
+    text-align: justify;
+    margin: 1% 5%;
+    padding: 1%;
+    overflow: auto; 
+    font-size: 110%;
+    line-height: 140%;
+    font-family: "Fredoka", sans-serif;
+}
+
+#home-image {
+    grid-area: img;
+} 
+
+#home-explore {
+    background-color: #fff;
+    z-index: 1;
+    grid-area: explore;
+
+}
+
+#home-explore p {
+    position: relative;
+    top: -15px;
+}
+
+.home-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    list-style: none;
+    position:relative;
+    right: 20px;
+    justify-content: center;
+    align-items: center;
+    bottom: 25px; 
+}
+
+.home-box {
+    width: calc(50% - 13%);
+    box-sizing: border-box;
+    display: flex;
+    white-space: nowrap;
+    padding: 1px; 
+    text-align: justify;
+    text-align: center;
+    align-items: center;
+}
+
+.home-box {
+    font-weight: bold ;
+    font-size: 16px;
+    font-family: "Righteous", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.home-maps {
+    border: 1px solid #000000;
+    width: 15%;
+    padding: 1%;
+    margin: -5% 77.2%;
+    right:  -10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #000000;
+    color: #fff;
+    border-radius: 15px;
+    font-size: 100%;
+    font-family: "Righteous", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    bottom: 35px;
+    position: relative; 
+}
+
+a {
+    list-style: none;
+    text-decoration: none;
+    color: #000000;
+}
+
+.fa-mug-hot, .fa-utensils, .fa-print, .fa-store {
+    font-size: 27px;
+}
+
+@media only screen and (max-width: 808px) {
+    .home-main-container {
+        grid-template-rows: auto 1fr;
+        height: 990px;
+        width: auto;
+        background-image: none;
+        overflow-x: hidden;
+
+    }
+    
+    #home-screen-container  {
+        background-color: rgba(255, 255, 255, 0.6);
+        grid-template-columns: auto;
+        grid-template-rows: 15fr 20fr 10fr;
+        grid-template-areas: 
+            "img"
+            "desc"
+            "explore";
+    }
+   
+    #home-image {
+        width: auto;
+        grid-area: img;
+        background-image: url(qcu.jpg);
+        background-size: cover;
+        background-position: center; 
+    }
+
+    #home-description {
+        grid-area: desc;
+        overflow-y: hidden;
+        height: 100%;
+        display: block;
+    }
+
+    #home-explore {
+        grid-area: explore;
+        position: relative;
+        background-image: url(qcu.jpg);
+        background-size: cover;
+        background-position: center;
+        overflow: hidden;
+        box-shadow: inset 0 0 0 2000px rgba(255, 255, 255, 0.6);
+
+
+    }
+
+    .home-maps {
+        position: relative;
+        top: 0px;
+    }
+    
+    br {
+        display: none;
+    }
+
+    #name {
+        text-align: center;
+    }
+   
+    .home-maps a {
+        position: relative;
+        top: 20px;
+    }
+    .home-list {
+        position: relative;
+    }   
+} 
