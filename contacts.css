@@ -216,7 +216,7 @@ body {
             display: none;
         }
         #contacts-main-container {
-            height: 105vh;
+            height: 110vh;
             grid-template-columns: 1fr;
             grid-template-rows: 1fr;
             grid-template-areas: 
