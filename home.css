@@ -164,7 +164,7 @@ a {
 @media only screen and (max-width: 808px) {
     .home-main-container {
         grid-template-rows: auto 1fr;
-        height: 1290px;
+        height: 1150px;
         width: auto;
         background-image: none;
         overflow-x: hidden;
@@ -192,14 +192,15 @@ a {
     #home-description {
         grid-area: desc;
         overflow-y: hidden;
-        height: 520px;
+        height: 550px;
         display: block;
     }
 
     #home-explore {
-        height: 200px;
+        height: 400px;
         grid-area: explore;
         position: relative;
+        top:-15px;
         background-image: url(qcu-img-1.jpg);
         background-size: cover;
         background-position: center;
@@ -246,7 +247,7 @@ a {
     #screen-container {
         width: 100%;
         height: 500px; /* Subtracting the height of nav-container */
-        overflow: hidden; /* Hide overflow content */
+        overflow-y: hidden; /* Hide overflow content */
     }
 
     iframe {
@@ -258,5 +259,4 @@ a {
     .fa-mug-hot, .fa-utensils, .fa-print, .fa-store {
         font-size: 25px;
     }
-} 
-
+}
