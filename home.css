@@ -183,7 +183,7 @@ a {
     #home-image {
         width: auto;
         grid-area: img;
-        background-image: url(qcu.jpg);
+        background-image: url(qcu-img-1.jpg);
         background-size: cover;
         background-position: center; 
     }
