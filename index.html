@@ -139,9 +139,11 @@
 
         #screen-container {
             width: 100%;
-            height: 100vh; /* Subtracting the height of nav-container */
+            height: calc(100vh - 70px); /* Subtracting the height of nav-container */
+            overflow: hidden; /* Hide overflow content */
             background-color: #F0B248;
             overflow: hidden; /* Hide overflow content */
+
         }
 
         iframe {
@@ -204,6 +206,7 @@
 
             #screen-container {
                 padding-top: 70px; /* Adjust this value to compensate for the fixed navigation */
+                height: 100vh;
             }
 
             /* Adjust position of "About" and "Contacts" to move down with expanded dropdown */
@@ -258,6 +261,9 @@
     <script>
         // alert("Still working behind the scenes to improve your browsing experience. Thanks for your understanding!");
 
+        
+
+
         $(document).ready(function() {
             function loadContent(url) {
                 $('#content-iframe').attr('src', url);
@@ -265,6 +271,7 @@
 
             // Load home.html by default
             loadContent('home.html');
+            
 
             $('#nav-btn-home').click(function() {
                 loadContent('home.html');
