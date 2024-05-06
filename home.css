@@ -160,6 +160,7 @@ a {
     font-size: 27px;
 }
 
+
 @media only screen and (max-width: 808px) {
     .home-main-container {
         grid-template-rows: auto 1fr;
@@ -258,3 +259,4 @@ a {
         font-size: 25px;
     }
 } 
+
