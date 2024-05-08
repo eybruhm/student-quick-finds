@@ -37,6 +37,7 @@ body {
     background-color: rgba(255, 255, 255, 0.8);
     grid-area: desc;
     position: relative;
+    height: 380px;
 }
 
 #home-explore p{
@@ -54,8 +55,9 @@ body {
     color: #000000;
 }
 
-#description p {
+#home-description #description {
     color: #000000;
+    line-height: 160%;
 }
 
 #name {
