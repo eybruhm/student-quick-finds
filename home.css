@@ -55,10 +55,6 @@ body {
     color: #000000;
 }
 
-#home-description #description {
-    color: #000000;
-    line-height: 160%;
-}
 
 #name {
     position: relative;
@@ -73,14 +69,15 @@ body {
 }
 
 #description {
+    color: #000000;
     position: relative;
-    top: 3%;
+    top: 6%;
     text-align: justify;
     margin: 1% 5%;
     padding: 1%;
     overflow: auto; 
     font-size: 110%;
-    line-height: 140%;
+    line-height: 160%;
     font-family: "Fredoka", sans-serif;
 }
 
