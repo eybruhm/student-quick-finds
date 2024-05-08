@@ -254,10 +254,10 @@ body {
          
         }
         #account-1-box {
-            top: 2%;
+            top: 5%;
         }
         #account-2-box {
-            bottom: 3%;
+            top: 0%;
         }
         #account-1-icon-phone, #account-2-icon-phone {
             top: 17%;
