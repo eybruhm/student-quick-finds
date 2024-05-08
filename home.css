@@ -65,7 +65,6 @@ body {
     font-family: "Fredoka", sans-serif;
     font-weight: 600;
     font-style: normal;
- 
 }
 
 #description {
@@ -173,7 +172,7 @@ a {
     #home-screen-container  {
         background-color: rgba(255, 255, 255, 0.6);
         grid-template-columns: auto;
-        grid-template-rows: 15fr 20fr 15fr;
+        grid-template-rows: 15fr 15fr 15fr;
         grid-template-areas: 
             "img"
             "desc"
@@ -191,7 +190,7 @@ a {
     #home-description {
         grid-area: desc;
         overflow-y: hidden;
-        height: 550px;
+        height: 480px;
         display: block;
     }
 
@@ -199,7 +198,7 @@ a {
         height: 400px;
         grid-area: explore;
         position: relative;
-        top:-15px;
+        top: -15px;
         background-image: url(qcu-img-1.jpg);
         background-size: cover;
         background-position: center;
@@ -228,8 +227,9 @@ a {
         font-size: 17px;
         position: relative;
         top: 50px;
+        margin: 1% 10%;
     }
-   
+
     .home-maps a {
         position: relative;
         top: 20px;
@@ -239,8 +239,8 @@ a {
          right: 30px;
     }   
     .home-box {
-    width: calc(55% - 13%);
-    font-size: 14px;
+        width: calc(55% - 13%);
+        font-size: 14px;
     }
 
     #screen-container {
