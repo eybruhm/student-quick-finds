@@ -15,11 +15,11 @@ body {
 
 /* 0 */
 #detail-box {
-    width: 52vw;
-    height: 70vh;
+    width: 55.5vw;
+    height: 71vh;
     z-index: 1;
     position: absolute;
-    box-shadow: 0 0 40px 40px rgba(0, 0, 0, 0.3); /* Spread radius of 5px */
+    box-shadow: 7px 0 40px 40px rgba(0, 0, 0, 0.3); /* Spread radius of 5px */
     top: 14%;
     left: 20%;
     display: none;
@@ -35,8 +35,8 @@ body {
 #img-container {
     background-color: #FFDDB7;
     grid-area: img;
-    width: 70vh;
-    height: 70vh;
+    width: 71vh;
+    height: 71vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -47,7 +47,7 @@ body {
     position: absolute;
     grid-area: details;
     width: 25vw;
-    height: 70vh;
+    height: 71.5vh;
     padding: 0 1% 0 5%;
     font-family: "Fredoka", sans-serif;
 }
