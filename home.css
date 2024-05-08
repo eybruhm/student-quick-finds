@@ -172,7 +172,7 @@ a {
     #home-screen-container  {
         background-color: rgba(255, 255, 255, 0.6);
         grid-template-columns: auto;
-        grid-template-rows: 15fr 15fr 15fr;
+        grid-template-rows: 15fr 18fr 25fr;
         grid-template-areas: 
             "img"
             "desc"
@@ -190,7 +190,7 @@ a {
     #home-description {
         grid-area: desc;
         overflow-y: hidden;
-        height: 480px;
+        height: 525px;
         display: block;
     }
 
