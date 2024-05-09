@@ -20,7 +20,7 @@ body {
     z-index: 1;
     position: absolute;
     box-shadow: 7px 0 40px 40px rgba(0, 0, 0, 0.3); /* Spread radius of 5px */
-    top: 14%;
+    top: 11%;
     left: 20%;
     display: none;
     grid-template-columns: 1fr 1fr;
