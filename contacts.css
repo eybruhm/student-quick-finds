@@ -126,7 +126,7 @@ body {
     font-family: "Fredoka", sans-serif;
 }
 
-#account-1-name a, #account-2-name a {
+#account-1-name a, #account-2-name a, #account-1-email a, #account-2-email a{
     text-decoration: none;
     color: black;
 }
