@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="map.css">
+    <script src="config.js"></script>
 </head>
 <body>
     <div id="map-container"></div>
@@ -164,7 +165,7 @@
 </script>
 
 <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDXhvFLQkvbE62WCdNsgXEB6rPSPnvKIAU&callback=initMap&v=weekly">
+    src="https://maps.googleapis.com/maps/api/js?key=" + config.GOOGLE_MAPS_API_KEY + "&callback=initMap&v=weekly">
 </script>
 </body>
 </html>
