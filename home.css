@@ -140,18 +140,16 @@ body {
     grid-area: explore;
 }
 
-
-
 .home-list {
     display: flex;
     flex-wrap: wrap;
     gap: 1.3rem;
     list-style: none;
     position:relative;
-    right: -5px;
+    right: 10px;
     justify-content: center;
     align-items: center;
-    bottom: 30px;
+    bottom: 40px;
 }
 
 .home-box {
@@ -209,21 +207,21 @@ body {
 /* VERCEL VERSION - Larger font */
 .home-maps {
     border: 1px solid #000000;
-    width: 15%;
+    width: 10%;
     padding: 1.2%;
     margin: -6% 78.5%;
-    right: -10px;
+    right: -30px;
     display: flex;
     align-items: center;
     justify-content: center;
     background-color: #000000;
     color: #fff;
     border-radius: 15px;
-    font-size: 21px;
+    font-size: 17px;
     font-family: "Righteous", sans-serif;
     font-weight: 400;
     font-style: normal;
-    bottom: 10px;
+    bottom: 30px;
     position: relative;
     cursor: pointer;
     transition: transform 0.2s;
@@ -329,7 +327,7 @@ a {
     }
     .home-list {
         position: relative;
-         right: 30px;
+        right: 30px;
     }   
     .home-box {
         width: calc(55% - 13%);
