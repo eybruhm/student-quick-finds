@@ -33,16 +33,38 @@ body {
         "explore img";
 }
 
+/* LOCAL VERSION - Good for local file viewing */
+/* #home-description {
+    background-color: rgba(255, 255, 255, 0.8);
+    grid-area: desc;
+    position: relative;
+    height: 420px;
+} */
+
+/* VERCEL VERSION - Larger for web deployment */
 #home-description {
     background-color: rgba(255, 255, 255, 0.8);
     grid-area: desc;
     position: relative;
-    height: 470px;
+    height: 500px;
 }
 
+/* LOCAL VERSION */
+/* #home-explore p{
+    font-weight: bold ;
+    font-size: 28px;
+    font-family: "Righteous", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    position: relative;
+    left: 35px;
+    top: -20px;
+} */
+
+/* VERCEL VERSION - Larger font */
 #home-explore p{
     font-weight: bold ;
-    font-size: 32px;
+    font-size: 36px;
     font-family: "Righteous", sans-serif;
     font-weight: 400;
     font-style: normal;
@@ -56,17 +78,45 @@ body {
 }
 
 
+/* LOCAL VERSION */
+/* #name {
+    position: relative;
+    top: 5%;
+    margin: 0 5%;
+    font-weight: bold ;
+    font-size: 65px;
+    font-family: "Fredoka", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+} */
+
+/* VERCEL VERSION - Larger font */
 #name {
     position: relative;
     top: 5%;
     margin: 0 5%;
     font-weight: bold ;
-    font-size: 72px;
+    font-size: 78px;
     font-family: "Fredoka", sans-serif;
     font-weight: 600;
     font-style: normal;
 }
 
+/* LOCAL VERSION */
+/* #description {
+    color: #000000;
+    position: relative;
+    top: 6%;
+    text-align: justify;
+    margin: 1% 5%;
+    padding: 1%;
+    overflow: auto; 
+    font-size: 17px;
+    line-height: 165%;
+    font-family: "Fredoka", sans-serif;
+} */
+
+/* VERCEL VERSION - Larger font */
 #description {
     color: #000000;
     position: relative;
@@ -75,8 +125,8 @@ body {
     margin: 2% 5%;
     padding: 1%;
     overflow: auto; 
-    font-size: 19px;
-    line-height: 170%;
+    font-size: 20px;
+    line-height: 175%;
     font-family: "Fredoka", sans-serif;
 }
 
@@ -115,14 +165,48 @@ body {
     align-items: center;
 }
 
+/* LOCAL VERSION */
+/* .home-box {
+    font-weight: bold ;
+    font-size: 17px;
+    font-family: "Righteous", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+} */
+
+/* VERCEL VERSION - Larger font */
 .home-box {
     font-weight: bold ;
-    font-size: 19px;
+    font-size: 21px;
     font-family: "Righteous", sans-serif;
     font-weight: 400;
     font-style: normal;
 }
 
+/* LOCAL VERSION */
+/* .home-maps {
+    border: 1px solid #000000;
+    width: 15%;
+    padding: 1%;
+    margin: -6% 78.5%;
+    right: -10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #000000;
+    color: #fff;
+    border-radius: 15px;
+    font-size: 17px;
+    font-family: "Righteous", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    bottom: 35px;
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.2s;
+} */
+
+/* VERCEL VERSION - Larger font */
 .home-maps {
     border: 1px solid #000000;
     width: 15%;
@@ -135,7 +219,7 @@ body {
     background-color: #000000;
     color: #fff;
     border-radius: 15px;
-    font-size: 19px;
+    font-size: 21px;
     font-family: "Righteous", sans-serif;
     font-weight: 400;
     font-style: normal;
@@ -155,8 +239,14 @@ a {
     color: #000000;
 }30
 
+/* LOCAL VERSION */
+/* .fa-mug-hot, .fa-utensils, .fa-print, .fa-store {
+    font-size: 28px;
+} */
+
+/* VERCEL VERSION - Larger icons */
 .fa-mug-hot, .fa-utensils, .fa-print, .fa-store {
-    font-size: 32px;
+    font-size: 36px;
 }
 
 
