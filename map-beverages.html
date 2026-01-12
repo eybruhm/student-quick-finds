@@ -4,12 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Beverages Map</title>
-    <!-- Polyfill.io removed: not needed for most modern browsers -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="map.css">
-    <script src="config.js"></script>
 </head>
 <body>
     <div id="map-container"></div>
@@ -163,7 +162,11 @@
     });
 
 </script>
-<<<<<<< HEAD
+
+<!-- 
+config.js should define the variable GOOGLE_MAPS_API_KEY like this:
+const GOOGLE_MAPS_API_KEY = 'YOUR_API_KEY
+-->
 
 <!-- Load API key from config -->
 <script src="config.js"></script>
@@ -172,13 +175,6 @@
 <script>
     const script = document.createElement('script');
     script.src = `https://maps.googleapis.com/maps/api/js?key=${GOOGLE_MAPS_API_KEY}&callback=initMap&v=weekly`;
-=======
-</script>
-<script>
-    // Dynamically load Google Maps API with API key from config.js
-    var script = document.createElement('script');
-    script.src = "https://maps.googleapis.com/maps/api/js?key=" + config.GOOGLE_MAPS_API_KEY + "&callback=initMap&v=weekly";
->>>>>>> 0dcea877bdaf708898e3c4dc8166ab60b2c36f03
     script.async = true;
     script.defer = true;
     document.head.appendChild(script);
