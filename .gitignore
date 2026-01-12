@@ -1,0 +1,13 @@
+# Environment files (if you create one later)
+.env
+.env.local
+
+# Optional: Uncomment this if you want to completely hide the key from git
+config.js
+
+# Node modules (if you add a build system later)
+node_modules/
+
+# OS files
+.DS_Store
+Thumbs.db

@@ -164,8 +164,16 @@
 
 </script>
 
-<script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDXhvFLQkvbE62WCdNsgXEB6rPSPnvKIAU&callback=initMap&v=weekly">
+<!-- Load API key from config -->
+<script src="config.js"></script>
+
+<!-- Load Google Maps API dynamically -->
+<script>
+    const script = document.createElement('script');
+    script.src = `https://maps.googleapis.com/maps/api/js?key=${GOOGLE_MAPS_API_KEY}&callback=initMap&v=weekly`;
+    script.async = true;
+    script.defer = true;
+    document.head.appendChild(script);
 </script>
 </body>
 </html>
