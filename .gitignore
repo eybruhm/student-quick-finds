@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Environment files (if you create one later)
 .env
 .env.local
@@ -11,3 +12,6 @@ node_modules/
 # OS files
 .DS_Store
 Thumbs.db
+=======
+# Ignore config file with API keys
+>>>>>>> 0dcea877bdaf708898e3c4dc8166ab60b2c36f03
