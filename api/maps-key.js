@@ -4,8 +4,8 @@ export default function handler(req, res) {
     const allowedOrigins = [
         'http://localhost:5500',
         'http://127.0.0.1:5500',
-        'https://your-project.vercel.app',
-        'https://yourusername.github.io'
+        'https://student-quick-finds.app',
+        'https://eybruhm.github.io'
     ];
     
     const origin = req.headers.origin;
