@@ -117,12 +117,13 @@ ul li .data {
 @media only screen and (max-width: 768px) {
     #detail-box {
         grid-template-columns: 1fr;
-        grid-template-rows: 1fr 1fr;
+        grid-template-rows: auto auto;
         grid-template-areas: 
             "img"
             "details";
         width: 35vh;
-        height: 73vh;
+        height: auto;
+        max-height: 85vh;
         top: 30%;
         left: 0;
         margin-left: 0;
@@ -146,12 +147,13 @@ ul li .data {
     #details-container {
         position: relative;
         width: 35vh;
-        height: 38vh;
+        height: auto;
+        min-height: 38vh;
+        max-height: 50vh;
         margin: 0;
         padding: 0;
         top: 0;
-      
-      
+        overflow-y: auto;
     }
     #img-X {
         display: flex;
