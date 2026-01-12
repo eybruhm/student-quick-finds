@@ -1,17 +1,16 @@
-<<<<<<< HEAD
-# Environment files (if you create one later)
+# Environment files
 .env
 .env.local
+.env.production
 
-# Optional: Uncomment this if you want to completely hide the key from git
-config.js
-
-# Node modules (if you add a build system later)
+# Node modules
 node_modules/
 
 # OS files
 .DS_Store
 Thumbs.db
-=======
-# Ignore config file with API keys
->>>>>>> 0dcea877bdaf708898e3c4dc8166ab60b2c36f03
+
+.md 
+
+# Vercel
+.vercel

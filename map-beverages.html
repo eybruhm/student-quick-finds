@@ -163,21 +163,27 @@
 
 </script>
 
-<!-- 
-config.js should define the variable GOOGLE_MAPS_API_KEY like this:
-const GOOGLE_MAPS_API_KEY = 'YOUR_API_KEY
--->
-
-<!-- Load API key from config -->
-<script src="config.js"></script>
-
-<!-- Load Google Maps API dynamically -->
+<!-- Fetch API key from serverless function and load Google Maps -->
 <script>
-    const script = document.createElement('script');
-    script.src = `https://maps.googleapis.com/maps/api/js?key=${GOOGLE_MAPS_API_KEY}&callback=initMap&v=weekly`;
-    script.async = true;
-    script.defer = true;
-    document.head.appendChild(script);
+    async function loadGoogleMaps() {
+        try {
+            // Fetch API key from Vercel serverless function
+            const response = await fetch('/api/maps-key');
+            const data = await response.json();
+            const apiKey = data.apiKey;
+            
+            // Load Google Maps API with the key
+            const script = document.createElement('script');
+            script.src = `https://maps.googleapis.com/maps/api/js?key=${apiKey}&callback=initMap&v=weekly`;
+            script.async = true;
+            script.defer = true;
+            document.head.appendChild(script);
+        } catch (error) {
+            console.error('Failed to load Google Maps:', error);
+        }
+    }
+    
+    loadGoogleMaps();
 </script>
 </body>
 </html>
