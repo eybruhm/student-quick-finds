@@ -33,7 +33,7 @@ body {
 
 /* 1 */
 #img-container {
-    background-color: #FFDDB7;
+    background-color: #e17f10;
     grid-area: img;
     width: 72vh;
     height: 72vh;
@@ -44,12 +44,12 @@ body {
 }
 #details-container {
     background-color: #FFDDB7;
-    position: absolute;
     grid-area: details;
     width: 25vw;
     height: 72vh;
     padding: 0 1% 0 5%;
     font-family: "Fredoka", sans-serif;
+    margin-left: -1px;
 }
 
 /* 2 */
@@ -64,15 +64,24 @@ body {
     position: absolute;
     z-index: 3;
     font-size: 120%;
-  font-family: "Fredoka", sans-serif;
+    font-family: "Fredoka", sans-serif;
 }
+
 #img-X {
     position: relative;
     left: 47%;
     top: -47%;
     z-index: 3;
     display: none;
+    color: #FFDDB7 !important;
+    background-color: transparent;
+
+    /* Increase width since half will be hidden behind the text */
+    -webkit-text-stroke: 6px #e17f10; 
+    paint-order: stroke fill;
 }
+
+
 #shop-img {
     width: 100%; /* Make the image fill the width of the container */
     height: auto; /* Maintain aspect ratio */
@@ -122,15 +131,15 @@ ul li .data {
             "img"
             "details";
         width: 35vh;
-        height: 78vh;
+        height: 70vh;
         top: 30%;
         left: 0;
         margin-left: 0;
         margin-top: 22%;
-      box-shadow: 0 0 30px 20px rgba(0, 0, 0, 0.3);
-      position: relative;
-      bottom: 5%;
-      
+        box-shadow: 0 0 30px 20px rgba(0, 0, 0, 0.3);
+        position: relative;
+        bottom: 5%;
+        
     }
     #img-container {
         width: 35vh;
@@ -146,7 +155,7 @@ ul li .data {
     #details-container {
         position: relative;
         width: 35vh;
-        height: 39vh;
+        height: 35vh;
         margin: 0;
         padding: 0;
         top: 0;
@@ -166,13 +175,13 @@ ul li .data {
     #shop-name {
         font-size: 150%;
         position: relative;
-        margin: 2% 5% 8% 7%; 
+        margin: 6% 5% 4% 7%; 
     }
     #shop-data {
         font-size: 90%;
-        top: -4%;
-      left: -7%;
-      margin-left: 0;
+        top: -1%;
+        left: -7%;
+        margin-left: 0;
     }
     #shop-data li {
         margin-top: 5%;
