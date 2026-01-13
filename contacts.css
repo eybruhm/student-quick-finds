@@ -218,11 +218,14 @@ body {
         display: none;
     }
     #contacts-main-container {
-        height: 105vh;
+        height: auto;                /* allow content to grow */
+        min-height: 110vh;           /* keep near full viewport height */
         grid-template-columns: 1fr;
         grid-template-rows: 1fr;
         grid-template-areas: 
             "left";
+        overflow-y: auto;            /* enable scrolling if needed */
+        padding-bottom: 14vh;        /* add breathing room below account-2 */
     }
     #contacts-left {
         grid-area: left;
@@ -259,7 +262,7 @@ body {
     }
     #account-2-box {
         top: 2%;
-        margin-bottom: 10px;
+        margin-bottom: 12vh;        /* space from bottom on actual devices */
     }
     #account-1-icon-phone, #account-2-icon-phone {
         top: 17%;
