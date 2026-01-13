@@ -225,7 +225,7 @@ body {
         grid-template-areas: 
             "left";
         overflow-y: auto;            /* enable scrolling if needed */
-        padding-bottom: 14vh;        /* add breathing room below account-2 */
+        /* padding-bottom: vh;        add breathing room below account-2 */
     }
     #contacts-left {
         grid-area: left;
