@@ -162,6 +162,7 @@ body {
     font-size: 100%;
 }
 
+/* Tablet */
 @media only screen and (min-width: 770px) and (max-width: 900px) {
     #contacts-main-container {
         overflow: auto;
@@ -172,9 +173,6 @@ body {
         height: 270px;
         top: 1%;
         margin-bottom: 5%;
-    }
-    #account-2-box {
-        margin-bottom: 10%;
     }
     #contacts-us span {
         top: 20%;
@@ -214,74 +212,75 @@ body {
 
 }
 
-
-    @media only screen and (max-width: 768px) {
-        #contacts-right {
-            display: none;
-        }
-        #contacts-main-container {
-            height: 105vh;
-            grid-template-columns: 1fr;
-            grid-template-rows: 1fr;
-            grid-template-areas: 
-                "left";
-        }
-        #contacts-left {
-            grid-area: left;
-            display: grid;
-            grid-template-columns: 1fr;
-            grid-template-rows: 1fr 6fr 6fr;
-            grid-template-areas: 
-                "contact-us"
-                "left"
-                "right";
-        }
-        #contacts-us {
-            display: flex;
-            justify-content: center;
-        }
-        #contacts-us span {
-            top: 24%;
-            left: 0px;
-            font-size: 200%;
-        }
-        #account-1-container, #account-2-container {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        #account-1-box, #account-2-box {
-            left: 0;
-            width: 300px;
-            height: 300px;
-         
-        }
-        #account-1-box {
-            top: 5%;
-        }
-        #account-2-box {
-            top: 1%;
-        }
-        #account-1-icon-phone, #account-2-icon-phone {
-            top: 17%;
-            width: 20px;
-            height: 20px;
-        }
-        #account-1-icon-email, #account-2-icon-email {
-            width: 20px;
-            height: 20px;
-            top: 15%;
-        }
-        
-        #account-1-phone, #account-2-phone {
-            top: 10.5%;
-            font-size: 100%;
-        }
-        #account-1-email, #account-2-email {
-            top: 8.5%;
-            font-size: 85%;
-        }
+/* Phone */
+@media only screen and (max-width: 768px) {
+    #contacts-right {
+        display: none;
     }
+    #contacts-main-container {
+        height: 105vh;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+        grid-template-areas: 
+            "left";
+    }
+    #contacts-left {
+        grid-area: left;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 6fr 6fr;
+        grid-template-areas: 
+            "contact-us"
+            "left"
+            "right";
+    }
+    #contacts-us {
+        display: flex;
+        justify-content: center;
+    }
+    #contacts-us span {
+        top: 24%;
+        left: 0px;
+        font-size: 200%;
+    }
+    #account-1-container, #account-2-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    #account-1-box, #account-2-box {
+        left: 0;
+        width: 300px;
+        height: 300px;
+        
+    }
+    #account-1-box {
+        top: 5%;
+    }
+    #account-2-box {
+        top: 1%;
+        margin-bottom: 10%;
+    }
+    #account-1-icon-phone, #account-2-icon-phone {
+        top: 17%;
+        width: 20px;
+        height: 20px;
+    }
+    #account-1-icon-email, #account-2-icon-email {
+        width: 20px;
+        height: 20px;
+        top: 15%;
+    }
+    
+    #account-1-phone, #account-2-phone {
+        top: 10.5%;
+        font-size: 100%;
+    }
+    #account-1-email, #account-2-email {
+        top: 8.5%;
+        font-size: 85%;
+    }
+}
 
 
 
